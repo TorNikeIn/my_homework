@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tor's Art Attic</title>
+        <link rel="stylesheet" href="./static/style.css">
+    </head>
+    <body>
+        <div class="navbar-wrapper">
+            <header>
+                <img src="https://img.freepik.com/free-vector/hand-drawn-hub-logo-design_23-2149857670.jpg?w=740&t=st=1708939509~exp=1708940109~hmac=21ad58697f868047d52901a9b4697f288ca48e596d8899927e6fd5e34c9be628" width="150px" height="150px" alt="Website's Logo">
+                <h1>Tor Art Attic</h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home')}}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('posts') }}">Posts</a></li>
+                    <li><a href="#contact-info">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h1>Posts</h1>
+        <div class="craft-container">
+            {% for craft in craft_list %}
+                <div class="craft-card">
+                    <h2>{{ craft.craft_name }}</h2>
+                    <p>{{ craft.craft_description }}</p>
+                    <p>Type: {{ craft.craft_genre }}</p>
+                    <img src="{{ craft.craft_image_path }}" alt="{{ craft.craft_name }}">
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
